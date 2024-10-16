@@ -1,7 +1,143 @@
+:root {
+    /* Couleurs principales */
+    --mainColorLight: rgb(238, 235, 230);
+    --mainColorDark: rgb(34, 30, 29);
+}
+
 html,
 body {
     height: 100vh;
     margin: 0;
-    font-size: 16px;
-    background-color: white;
+    font-size: 18px;
+    background: var(--mainColorLight);
+    color: var(--mainColorDark);
+}
+
+body {
+    display: grid;
+    grid-template-rows: 18% 1fr 5%;
+    grid-template-columns: 1fr;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: salmon;
+    box-shadow: 0 1px 1px;
+}
+
+main {
+    padding: 1rem;
+    line-height: 1.5;
+}
+
+h1,
+h2,
+h3 {
+    margin: 0;
+}
+
+h1 {
+    margin: 0 1rem;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 1rem;
+}
+
+h3 {
+    margin-bottom: 0.4rem;
+}
+
+section,
+aside {
+    margin-bottom: 1.5rem;
+}
+
+p {
+    margin: 0;
+}
+
+footer {
+    align-self: flex-end;
+    padding: 0.5rem 0% 0.5rem 5%;
+    margin: 0;
+    background-color: darkgray;
+    color: black;
+}
+
+#recipes {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.recipe {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-style: solid;
+    margin: 0 1rem 1rem;
+    padding: 0.5rem;
+    transition: all 0.3s;
+}
+
+.recipe:hover {
+    box-shadow: 1px 2px 2px 2px;
+    background-color: rgba(226, 220, 210, 0.2);
+}
+
+.imgRecipe {
+    width: 65%;
+}
+
+#categories{
+    margin-top: 1rem;
+}
+
+.category {
+    list-style: none;
+    font-size: 1.1rem;
+    margin: 0 2rem 1rem 0;
+}
+
+.category:hover{
+    cursor: pointer;
+}
+
+.activeCategory{
+    font-weight: bold;
+}
+
+.masque {
+    display: none;
+    background: greenyellow;
+}
+
+
+@media screen and (min-width: 768px) {
+    main {
+        display: grid;
+        grid-template-columns: 1fr 30%;
+    }
+
+    aside{
+        margin-left: 1rem;
+        background: palevioletred;
+    }
+}
+
+@media screen and (min-width: 992px){
+    main {
+        display: grid;
+        grid-template-columns: 1fr 240px;
+    }
+
+    aside{
+        margin-left: 1rem;
+        background: palevioletred;
+    }
 }
