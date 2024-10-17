@@ -23,6 +23,12 @@ function displayCategories() {
             categoriesArray.push(element.category);
         }
     });
+    // recherche des difficultés
+    recipes.forEach(element => {
+        if (!categoriesArray.includes(element.difficulty)) {
+            categoriesArray.push(element.difficulty);
+        }
+    });
 
     // affichage
     categoriesArray.forEach(element => {
@@ -38,6 +44,7 @@ function filterByCategory(event) {
     if (event.target.nodeName === "LI") {
         let categoryList = document.querySelectorAll("#categories li");
         let recipeList = document.querySelectorAll("#recipes article");
+        // au clique sur tout voir on affiche toutes les recettes sans filtre
         if (event.target.textContent === "Tout voir") {
             // modification de l'affichage des filtres
             categoryList.forEach(element => {
@@ -48,15 +55,16 @@ function filterByCategory(event) {
             recipeList.forEach(element => {
                 element.classList.remove("masque");
             });
+        // au clique sur un autre filtre on applique ce dernier
         } else {
             // modification de l'affichage des filtres
             categoryList.forEach(element => {
                 element.classList.remove("activeCategory");
                 event.target.classList.add("activeCategory");
             });
-            // Affichage de toutes les recettes
+            // Affichage de toutes les recettes correspondant au filtre
             recipeList.forEach(element => {
-                if (element.textContent === event.target.textContent) {
+                if (element.textContent.includes(event.target.textContent)) {
                     element.classList.remove("masque");
                 } else {
                     element.classList.add("masque");
@@ -92,6 +100,22 @@ const recipes = [
         imageAlt: "Image placeholder",
         category: "Entrées",
         difficulty: "Facile"
+    },
+    {
+        id: 4,
+        title: "Forêt noire",
+        image: "https://placehold.co/600x400",
+        imageAlt: "Image placeholder",
+        category: "Desserts",
+        difficulty: "Difficile"
+    },
+    {
+        id: 5,
+        title: "Gratin Dauphinois",
+        image: "https://placehold.co/600x400",
+        imageAlt: "Image placeholder",
+        category: "Plats principaux",
+        difficulty: "Moyen"
     }
 ];
 

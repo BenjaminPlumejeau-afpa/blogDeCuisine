@@ -2,6 +2,8 @@
     /* Couleurs principales */
     --mainColorLight: rgb(238, 235, 230);
     --mainColorDark: rgb(34, 30, 29);
+    --bannerColor: salmon;
+    --hoverColor: rgba(250, 128, 114, 0.2);
 }
 
 html,
@@ -24,7 +26,7 @@ header {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: salmon;
+    background: var(--bannerColor);
     box-shadow: 0 1px 1px;
 }
 
@@ -80,21 +82,24 @@ footer {
     flex-direction: column;
     align-items: center;
     border-style: solid;
+    border-width: 1px;
+    border-radius: 5px;
     margin: 0 1rem 1rem;
     padding: 0.5rem;
     transition: all 0.3s;
 }
 
 .recipe:hover {
-    box-shadow: 1px 2px 2px 2px;
-    background-color: rgba(226, 220, 210, 0.2);
+    box-shadow: 1px 2px 2px 2px var(--bannerColor);
+    border-color: var(--hoverColor);
+    background: var(--hoverColor);
 }
 
 .imgRecipe {
     width: 65%;
 }
 
-#categories{
+#categories {
     margin-top: 1rem;
 }
 
@@ -104,17 +109,27 @@ footer {
     margin: 0 2rem 1rem 0;
 }
 
-.category:hover{
+.category:hover {
     cursor: pointer;
+    text-shadow: 1px 1px 1px;
+    border-radius: 10px;
+    background: var(--hoverColor);
 }
 
-.activeCategory{
+.activeCategory {
     font-weight: bold;
+    text-decoration: underline;
+}
+
+.activeCategory:hover {
+    cursor: default;
+    text-shadow: none;
+    border-radius: 0;
+    background: none;
 }
 
 .masque {
     display: none;
-    background: greenyellow;
 }
 
 
@@ -124,20 +139,33 @@ footer {
         grid-template-columns: 1fr 30%;
     }
 
-    aside{
+    aside {
         margin-left: 1rem;
-        background: palevioletred;
+        padding: 0.5rem;
+        background: linear-gradient(var(--bannerColor), var(--mainColorLight) 75%) no-repeat, var(--mainColorLight);
     }
 }
 
-@media screen and (min-width: 992px){
+@media screen and (min-width: 992px) {
     main {
         display: grid;
         grid-template-columns: 1fr 240px;
     }
 
+    #recipes {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+
+    }
+
+    .recipe {
+        width: 480px;
+    }
+
     aside{
-        margin-left: 1rem;
-        background: palevioletred;
+        position: sticky;
+        top: 0;
+        height: 75%;
     }
 }
