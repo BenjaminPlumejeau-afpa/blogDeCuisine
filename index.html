@@ -4,6 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Andika:ital,wght@0,400;0,700;1,400;1,700&family=Charm:wght@400;700&display=swap"
+        rel="stylesheet">
+
     <link rel="stylesheet" href="main.css">
     <script type="module" src="javascript.js"></script>
     <title>Blog de Recettes Gourmandes</title>
@@ -25,10 +32,13 @@
 
         <aside>
             <h2>Catégories</h2>
-            <ul id="categories">
-                <!-- Les catégories seront ajoutées ici dynamiquement -->
-                 <li class="category activeCategory">Tout voir</li>
-            </ul>
+            <div class="filterMenu">
+                <input type="text" id="search" placeholder="Rechercher">
+                <ul id="categories">
+                    <!-- Les catégories seront ajoutées ici dynamiquement -->
+                    <li class="category activeCategory">Tout voir</li>
+                </ul>
+            </div>
         </aside>
     </main>
 
