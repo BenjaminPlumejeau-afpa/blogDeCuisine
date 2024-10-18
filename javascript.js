@@ -1,4 +1,4 @@
-//  --- CONSTANTES ---
+// Stockage ds données des recettes
 const recipes = [
     {
         id: 1,
@@ -6,7 +6,8 @@ const recipes = [
         image: "images/photoTartePommes.jpg",
         imageAlt: "Photo de notre délicieuse tarte aux pommes",
         category: "Desserts",
-        difficulty: "Facile"
+        difficulty: "Facile",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quaerat natus dignissimos est itaque ratione inventore harum id tenetur asperiores laborum, eaque atque ea unde molestias. Maiores minus facere numquam!"
     },
     {
         id: 2,
@@ -14,7 +15,8 @@ const recipes = [
         image: "https://placehold.co/600x400",
         imageAlt: "Image placeholder",
         category: "Plats principaux",
-        difficulty: "Moyen"
+        difficulty: "Moyen",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quaerat natus dignissimos est itaque ratione inventore harum id tenetur asperiores laborum, eaque atque ea unde molestias. Maiores minus facere numquam!"
     },
     {
         id: 3,
@@ -22,7 +24,8 @@ const recipes = [
         image: "https://placehold.co/600x400",
         imageAlt: "Image placeholder",
         category: "Entrées",
-        difficulty: "Facile"
+        difficulty: "Facile",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quaerat natus dignissimos est itaque ratione inventore harum id tenetur asperiores laborum, eaque atque ea unde molestias. Maiores minus facere numquam!"
     },
     {
         id: 4,
@@ -30,7 +33,8 @@ const recipes = [
         image: "https://placehold.co/600x400",
         imageAlt: "Image placeholder",
         category: "Desserts",
-        difficulty: "Difficile"
+        difficulty: "Difficile",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quaerat natus dignissimos est itaque ratione inventore harum id tenetur asperiores laborum, eaque atque ea unde molestias. Maiores minus facere numquam!"
     },
     {
         id: 5,
@@ -38,9 +42,13 @@ const recipes = [
         image: "https://placehold.co/600x400",
         imageAlt: "Image placeholder",
         category: "Plats principaux",
-        difficulty: "Moyen"
+        difficulty: "Moyen",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quaerat natus dignissimos est itaque ratione inventore harum id tenetur asperiores laborum, eaque atque ea unde molestias. Maiores minus facere numquam!"
     }
 ];
+
+
+//  --- CONSTANTES ---
 
 const recipesCollection = document.getElementById("recipes");
 const categoriesCollection = document.getElementById("categories");
@@ -116,8 +124,7 @@ function filterByCategory(event) {
             });
             // Affichage de toutes les recettes correspondant au filtre
             recipeList.forEach(element => {
-                //if (element.textContent.includes(event.target.textContent)) {
-                if (element.textContent.includes(event.target.textContent)) {
+                if ((element.childNodes[5].textContent.includes(event.target.textContent)) || (element.childNodes[7].textContent.includes(event.target.textContent))) {
                     element.classList.remove("masque");
                 } else {
                     element.classList.add("masque");
