@@ -64,7 +64,7 @@ h2 {
 }
 
 h3 {
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.6rem;
 }
 
 section,
@@ -208,20 +208,22 @@ footer {
     }
 
     .recipe {
-        width: 480px;
+        max-width: 41%;
     }
 }
 
-/* A voir - peut-etre plus de mediaqueries nécessaires pour affichage propre 
-@media screen and (min-width: 1365px) {
-}*/
+/* Pour les écrans suffisament larges pour le permettre on affiche 3 recettes par lignes */
+@media screen and (min-width: 1590px) {
+
+    .recipe {
+        max-width: 29%;
+        flex: 1 0 29%;
+    }
+}
 
 /* Menu déroulant des catégories pour mobile */
 @media screen and (max-width: 767px) {
     aside {
-        /*position: absolute;
-        top: 18%;
-        right: 0;*/
         position: sticky;
         bottom: 95%;
         right: 0;
