@@ -2,8 +2,8 @@
     /* Couleurs principales */
     --mainColorLight: rgb(238, 235, 230);
     --mainColorDark: rgb(34, 30, 29);
-    --bannerColor: salmon;
-    --hoverColor: rgba(250, 128, 114, 0.2);
+    --bannerColor: rgb(250, 140, 130);
+    --hoverColor: rgba(250, 140, 130, 0.2);
 }
 
 html,
@@ -51,7 +51,7 @@ h2 {
 h1 {
     margin: 0 1rem;
     text-align: center;
-    font-size: 2.4rem;
+    font-size: 2.2rem;
     line-height: 1;
 }
 
@@ -119,6 +119,7 @@ footer {
 #search {
     margin-left: 5%;
     width: 80%;
+    height: 1.2rem;
     border-radius: 4px;
     border-color: var(--bannerColor);
 }
@@ -172,7 +173,7 @@ footer {
         border-radius: 10px;
         background: linear-gradient(var(--bannerColor), var(--mainColorLight) 85%) no-repeat, var(--mainColorLight);
         position: sticky;
-        top: 0;
+        top: 1rem;
         height: 75%;
         max-height: 800px;
     }
@@ -184,6 +185,15 @@ footer {
         display: grid;
         grid-template-columns: 1fr 240px;
     }
+
+    h1 {
+        font-size: 2.6rem;
+    }
+
+    header p {
+        font-size: 1.4rem;
+    }
+
 
     section h2 {
         margin-top: 1rem;
@@ -209,29 +219,63 @@ footer {
 /* Menu déroulant des catégories pour mobile */
 @media screen and (max-width: 767px) {
     aside {
+        /*position: absolute;
+        top: 18%;
+        right: 0;*/
+        position: sticky;
+        bottom: 95%;
+        right: 0;
+
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-        position: fixed;
-        top: 18%;
-        right: 0;
         align-items: flex-end;
         margin: 0;
         padding: 0.8em;
         line-height: 0.2;
+
+        height: 0;
     }
 
-    aside h2{
-        margin: 1rem 0 1rem;
-    }
-
-    aside h2::after {
-        content: " V ";
-    }
-
-    .filterMenu{
+    #mobileMenu {
+        margin: 0;
+        padding: 1rem 0.4rem 1rem;
         background: var(--bannerColor);
+        border-radius: 8px;
+        transition: all 0.3s;
+    }
+
+    #mobileMenu::after {
+        content: " ☰ ";
+    }
+
+    #mobileMenu:hover {
+        cursor: pointer;
+    }
+
+    #filterMenu {
+        display: none;
+        opacity: 0;
         padding: 0.5rem;
-        display: block;
+        border-radius: 8px 0 8px 8px;
+        background: var(--bannerColor);
+        transition: all 0.4s;
+    }
+
+    #search {
+        margin-top: 0.5rem;
+    }
+
+    #filterMenu ul {
+        padding-left: 0.5rem;
+    }
+
+    #filterMenu li {
+        margin: 0;
+        padding: 0.8rem 1rem 0.8rem;
+    }
+
+    footer {
+        font-size: 16px;
     }
 }

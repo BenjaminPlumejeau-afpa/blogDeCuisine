@@ -45,6 +45,8 @@ const recipes = [
 const recipesCollection = document.getElementById("recipes");
 const categoriesCollection = document.getElementById("categories");
 const searchField = document.getElementById("search");
+const dropDownMenu = document.getElementById("filterMenu");
+const menuButton = document.getElementById("mobileMenu");
 
 
 //  --- FONCTIONS ---
@@ -143,6 +145,21 @@ function searchRecipe() {
     }
 }
 
+//fonction toogle du menu déroulant des catégories en mode mobile
+function toogleMenu() {
+    if (window.matchMedia("screen and (max-width: 767px)").matches) {
+        if (dropDownMenu.style.display === "block") {
+            menuButton.style.borderRadius = ("8px");
+            dropDownMenu.style.opacity = "0";
+            setTimeout(function () { dropDownMenu.style.display = "none"; }, 401);
+        } else {
+            menuButton.style.borderRadius = ("8px 8px 0 0");
+            dropDownMenu.style.display = "block";
+            setTimeout(function () { dropDownMenu.style.opacity = "100"; }, 1);
+        }
+    }
+}
+
 
 //  --- PROGRAMME PRINCIPAL ---
 
@@ -153,3 +170,4 @@ displayCategories();
 // Ecouteurs
 categoriesCollection.addEventListener("click", filterByCategory);
 searchField.addEventListener("keypress", searchRecipe);
+menuButton.addEventListener("click", toogleMenu);
