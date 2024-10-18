@@ -3,7 +3,7 @@
     --mainColorLight: rgb(238, 235, 230);
     --mainColorDark: rgb(34, 30, 29);
     --bannerColor: rgb(250, 140, 130);
-    --hoverColor: rgba(250, 140, 130, 0.2);
+    --focusColor: rgb(255, 219, 210);
 }
 
 html,
@@ -104,8 +104,8 @@ footer {
 
 .recipe:hover {
     box-shadow: 1px 2px 2px 2px var(--bannerColor);
-    border-color: var(--hoverColor);
-    background: var(--hoverColor);
+    border-color: var(--focusColor);
+    background: var(--focusColor);
 }
 
 .imgRecipe {
@@ -138,7 +138,7 @@ footer {
     cursor: pointer;
     text-shadow: 1px 1px 1px;
     border-radius: 10px;
-    background: var(--hoverColor);
+    background: var(--focusColor);
 }
 
 .activeCategory {
@@ -240,7 +240,7 @@ footer {
     }
 
     #mobileMenu {
-        margin: 0;
+        margin: -1rem 0 0;
         padding: 1rem 0.4rem 1rem;
         background: var(--bannerColor);
         border-radius: 8px;
@@ -280,4 +280,30 @@ footer {
     footer {
         font-size: 16px;
     }
+}
+
+
+/*Classe spécifique à l'affiche des recettes en pleine page*/
+.showRecipe {
+    position: fixed;
+    top: 0;
+    left: -1rem;
+    z-index: 2;
+    width: 80vw;
+    height: 80vh;
+    margin: 10%;
+    background: var(--focusColor);
+    border-width: 3px;
+    box-shadow: 0 5px 50px 50px var(--bannerColor);
+    transition: all 0.4s;
+}
+
+.showRecipe h3 {
+    font-size: 1.4rem;
+}
+
+.showRecipe p {
+    padding: 0.5rem 1.5rem 0.5rem;
+    line-height: 1.8;
+    overflow: auto;
 }

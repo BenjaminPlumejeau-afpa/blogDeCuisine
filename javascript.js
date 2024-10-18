@@ -68,6 +68,7 @@ function displayRecipes() {
                     <img class="imgRecipe" src="${element.image}" alt="${element.imageAlt}">
                     <p>Catégorie : <strong>${element.category}</strong></p>
                     <p>Difficulté : <strong>${element.difficulty}</strong></p>
+                    <p class="masque">${element.description}</p>
                 </article>
         `;
     });
@@ -152,7 +153,7 @@ function searchRecipe() {
     }
 }
 
-//fonction toogle du menu déroulant des catégories en mode mobile
+// fonction toogle du menu déroulant des catégories en mode mobile
 function toogleMenu() {
     if (window.matchMedia("screen and (max-width: 767px)").matches) {
         if (dropDownMenu.style.display === "block") {
@@ -167,6 +168,19 @@ function toogleMenu() {
     }
 }
 
+// fonction au clic sur une receete qui l'aggrandie et affiche sa description
+function showRecipeDetails(event) {
+    if ((event.target.nodeName === "ARTICLE") || (event.target.parentNode.nodeName === "ARTICLE")) {
+        let theRecipe = {}; if (event.target.nodeName === "ARTICLE") {
+            theRecipe = event.target;
+        } else {
+            theRecipe = event.target.parentNode;
+        }
+        theRecipe.classList.toggle("showRecipe");
+        theRecipe.childNodes[9].classList.toggle("masque");
+    }
+}
+
 
 //  --- PROGRAMME PRINCIPAL ---
 
@@ -178,3 +192,4 @@ displayCategories();
 categoriesCollection.addEventListener("click", filterByCategory);
 searchField.addEventListener("keypress", searchRecipe);
 menuButton.addEventListener("click", toogleMenu);
+recipesCollection.addEventListener("click", showRecipeDetails);
